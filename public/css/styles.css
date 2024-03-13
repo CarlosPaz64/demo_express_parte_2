@@ -135,7 +135,7 @@ p.empty-cart {
 .producto-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  gap: 30px;
 }
 
 .producto {
@@ -145,8 +145,10 @@ p.empty-cart {
 }
 .producto img {
   max-width: 100%;
-  height: auto;
+  height: 120px;
   margin-bottom: 10px;
+  display: block;
+  margin: 0 auto; 
 }
 .producto h2 {
   font-size: 1.5rem;
@@ -218,50 +220,5 @@ p.empty-cart {
   text-align: center;
   margin-top: 20px;
 }
-
-/* Tamaño de las imágenes */
-.carousel-container .carousel.slide[data-ride="carousel"]#carouselExampleIndicators .carousel-inner .carousel-item img {
-  height: 300px;
-  width: auto;
-}
-
-/* Carrusel automático */
-.carousel.slide[data-ride="carousel"] {
-  /* Mantener el desplazamiento horizontal */
-  overflow-x: auto;
-}
-
-.carousel.slide[data-ride="carousel"] .carousel-inner {
-  /* Alinear los elementos en una fila horizontal */
-  display: flex;
-  flex-direction: row;
-}
-
-.carousel.slide[data-ride="carousel"] .carousel-inner .carousel-item {
-  /* Ajustar el tamaño de las imágenes */
-  flex: 0 0 auto;
-  width: 100%; /* O ajusta el ancho deseado */
-}
-
-.carousel.slide[data-ride="carousel"] .carousel-item {
-  /* Animación para desplazar de izquierda a derecha */
-  transition: transform 2s ease;
-}
-
-/* Cuando cambia el elemento activo, aplicar la transformación */
-.carousel.slide[data-ride="carousel"] .carousel-item.active {
-  transform: translateX(0); /* Cambia el valor de X para ajustar la dirección */
-}
-
-.carousel.slide[data-ride="carousel"] .carousel-item.next {
-  transform: translateX(100%); /* Mover el próximo elemento hacia la derecha */
-}
-
-.carousel.slide[data-ride="carousel"] .carousel-item.prev {
-  transform: translateX(-100%); /* Mover el elemento previo hacia la izquierda */
-}
-
-
-
 
 /*# sourceMappingURL=styles.css.map */

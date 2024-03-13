@@ -18,9 +18,16 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-  res.locals.carrito = req.session.carrito || [];
+  res.locals.carrito = req.session.carrito || []; // Funcion para darle seguimiento al carrito de compra 
+  // de una sesion en específico
   next();
 });
+
+// Middleware para acceder a la sesión en todas las vistas
+app.use((req, res, next) => {
+    res.locals.cliente = req.session.cliente || null; // Guarda el cliente en res.locals para accederlo en las vistas
+    next();
+  });
 
 // Configuración de la plantilla Pug
 app.set('view engine', 'pug');
@@ -162,8 +169,12 @@ app.post('/procesar-compra', (req, res) => {
 
     // Vaciar el carrito después de procesar la compra
     req.session.carrito = [];
-    
-    res.render('confirmacion-compra', { title: 'Compra Exitosa' });
+
+    // Obtener el nombre y apellido del cliente desde la sesión
+    const { nombre, apellido } = req.session.cliente;
+
+    // Renderizar la vista de confirmación de compra con el nombre, apellido y carrito
+    res.render('confirmacion-compra', { title: 'Compra Exitosa', nombre, apellido, carrito });
 });
   
 // Puerto en el que escucha el servidor

@@ -20,8 +20,8 @@ html
           // Utiliza el código Unicode del ícono del carrito de compra
           a(href='/carrito') &#128722; (#{carrito.length})
         li
-          a(href='/registro_cliente')
+          a(href= cliente ? '/' : '/registro_cliente' aria-label= cliente ? '/' : 'Registrarme')
             i.fa.fa-user
-            i Registrarme
+            i= cliente ? (cliente.nombre + ' ' + cliente.apellido) : 'Registrarme'
     .container
       block content

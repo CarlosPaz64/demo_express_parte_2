@@ -3,12 +3,18 @@ const app = express();
 const session = require('express-session');
 const path = require('path');
 const productosController = require('./controllers/productos');
+const clientesController = require('./controllers/clientes');
+const bodyParser = require('body-parser'); // Importa body-parser
+
+// Configurar middleware para analizar el cuerpo de las solicitudes
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Configurar middleware para manejar sesiones
 app.use(session({
   secret: 'secreto', // Clave secreta para firmar la cookie de sesión
   resave: false,
-  saveUninitialized: true
+  saveUninitialized: false
 }));
 
 app.use((req, res, next) => {
@@ -24,10 +30,28 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static('public'));
 app.use(express.json());
 
+// Ruta para la vista de registro de cliente
+app.get('/registro_cliente', (req, res) => {
+    res.render('registro_cliente', { title: 'Registro de Cliente' });
+});
+
+// Manejar el registro de clientes
+app.post('/registro_cliente', (req, res) => {
+    const { nombre, apellido } = req.body;
+    console.log('Datos del cliente:', nombre, apellido);
+    clientesController.agregarCliente(nombre, apellido); // Agrega el cliente al controlador de clientes
+    req.session.cliente = { nombre, apellido }; // Guarda el nombre y apellido del cliente en la sesión
+    console.log('Cliente registrado:', req.session.cliente); // Imprime los datos del cliente guardados en la sesión
+    res.redirect('/');
+});
+
 // Ruta para la página de inicio
 app.get('/', (req, res) => {
-    res.render('index', { title: 'Página de Bienvenida' });
+    const cliente = req.session.cliente; // Obtén los datos del cliente almacenados en la sesión
+    console.log('Datos del cliente en la página de inicio:', cliente); // Imprime los datos del cliente en la consola
+    res.render('index', { title: 'Página de Bienvenida', cliente });
 }); 
+
 
 // Ruta para el catálogo de productos
 app.get('/catalogo', (req, res) => {
@@ -63,6 +87,9 @@ app.get('/carrito', (req, res) => {
 app.post('/agregar-al-carrito/:id', (req, res) => {
   const idProducto = req.params.id;
   const producto = productosController.getProductoPorId(idProducto);
+  if (!req.session.cliente) {
+    return res.redirect('/registro_cliente');
+}
   if (producto && producto.cantidad > 0) {
       let carrito = req.session.carrito || [];
       let productoEnCarrito = carrito.find(item => item.id === idProducto);
@@ -129,6 +156,9 @@ app.post('/procesar-compra', (req, res) => {
     const carrito = req.session.carrito || []; // Obtiene el carrito de la sesión del usuario
 
     // Lógica para procesar la compra...
+    if (!req.session.cliente) {
+        return res.status(403).send('Debes estar registrado para comprar');
+    }
 
     // Vaciar el carrito después de procesar la compra
     req.session.carrito = [];

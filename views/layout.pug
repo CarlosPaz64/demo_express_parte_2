@@ -4,6 +4,11 @@ html
   head
     title #{title}
     link(rel='stylesheet', href='/css/styles.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
+    style.
+      .material-symbols-outlined {
+        font-family: 'Material Symbols Outlined', sans-serif;
+      }
   body
     nav
       ul
@@ -12,7 +17,11 @@ html
         li
           a(href='/catalogo') Catálogo de Productos
         li
-          a(href='/carrito') Carrito de Compra (#{carrito.length})
-
+          // Utiliza el código Unicode del ícono del carrito de compra
+          a(href='/carrito') &#128722; (#{carrito.length})
+        li
+          a(href='/registro_cliente')
+            i.fa.fa-user
+            i Registrarme
     .container
       block content

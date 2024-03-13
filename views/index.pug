@@ -2,8 +2,42 @@ extends layout
 
 block content
   h1 #{title}
+  if cliente
+    i(class="fas fa-user")
+    span ¡Hola, #{cliente.nombre} #{cliente.apellido}!
+  else
+    p Bienvenido/a, por favor regístrate para comenzar a comprar.
   p Bienvenido a nuestra página de ventas ecommerce.
+  
 
   form(action='/buscar-producto', method='GET' class='search-bar')
     input(type='text', name='q', placeholder='Buscar producto...')
     button(type='submit') Buscar
+
+  .carousel-container
+    .carousel.slide(data-ride="carousel", id="carouselExampleIndicators")
+      ol.carousel-indicators
+        li(data-target="#carouselExampleIndicators", data-slide-to="0", class="active")
+        li(data-target="#carouselExampleIndicators", data-slide-to="1")
+        li(data-target="#carouselExampleIndicators", data-slide-to="2")
+      .carousel-inner
+        .carousel-item.active
+          img.d-block.w-100(src="../images/producto1.jpg", alt="First slide")
+        .carousel-item
+          img.d-block.w-100(src="../images/producto2.jpg", alt="Second slide")
+        .carousel-item
+          img.d-block.w-100(src="../images/producto3.jpg", alt="Third slide")
+          .carousel-item
+          img.d-block.w-100(src="../images/producto4.jpg", alt="Second slide")
+        .carousel-item
+          img.d-block.w-100(src="../images/producto5.jpg", alt="Third slide")
+          .carousel-item
+          img.d-block.w-100(src="../images/producto6.jpg", alt="Second slide")
+        .carousel-item
+          img.d-block.w-100(src="../images/producto7.jpg", alt="Third slide")
+      a.carousel-control-prev(href="#carouselExampleIndicators", role="button", data-slide="prev")
+        span.carousel-control-prev-icon(aria-hidden="true")
+        span.sr-only Previous
+      a.carousel-control-next(href="#carouselExampleIndicators", role="button", data-slide="next")
+        span.carousel-control-next-icon(aria-hidden="true")
+        span.sr-only Next

@@ -1,1 +1,12 @@
 extends layout
+
+block content
+  h1 Registro de Cliente
+  form(action="/registro_cliente", method="post")
+    label(for="nombre") Nombre:
+    input(type="text", name="nombre", required)
+    br
+    label(for="apellido") Apellido:
+    input(type="text", name="apellido", required)
+    br
+    input(type="submit")

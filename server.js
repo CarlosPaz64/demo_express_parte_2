@@ -56,7 +56,7 @@ app.post('/registro_cliente', (req, res) => {
 app.get('/', (req, res) => {
     const cliente = req.session.cliente; // Obtén los datos del cliente almacenados en la sesión
     console.log('Datos del cliente en la página de inicio:', cliente); // Imprime los datos del cliente en la consola
-    res.render('index', { title: 'Página de Bienvenida', cliente });
+    res.render('index', { title: 'Tienda de videojuegos: Legendary Collection' });
 }); 
 
 
@@ -176,6 +176,14 @@ app.post('/procesar-compra', (req, res) => {
     // Renderizar la vista de confirmación de compra con el nombre, apellido y carrito
     res.render('confirmacion-compra', { title: 'Compra Exitosa', nombre, apellido, carrito });
 });
+
+app.get('/cerrar_sesion', (req, res) => {
+    // Lógica para cerrar sesión, por ejemplo, eliminando el cliente de la sesión
+    delete req.session.cliente;
+  
+    // Redirige al usuario a la página de inicio
+    res.redirect('/');
+  });
   
 // Puerto en el que escucha el servidor
 const port = 3000;

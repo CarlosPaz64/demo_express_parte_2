@@ -5,6 +5,7 @@ html
     title #{title}
     link(rel='stylesheet', href='/css/styles.css')
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css')
+    link(rel='stylesheet', href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0')
     style.
       .material-symbols-outlined {
         font-family: 'Material Symbols Outlined', sans-serif;
@@ -13,15 +14,19 @@ html
     nav
       ul
         li
-          a(href='/') Inicio
+          a(href='/') &#127968; Inicio
         li
-          a(href='/catalogo') Catálogo de Productos
+          a(href='/catalogo') &#x1F45C; Catálogo de Productos
         li
           // Utiliza el código Unicode del ícono del carrito de compra
           a(href='/carrito') &#128722; (#{carrito.length})
         li
-          a(href= cliente ? '/' : '/registro_cliente' aria-label= cliente ? '/' : 'Registrarme')
-            i.fa.fa-user
-            i= cliente ? (cliente.nombre + ' ' + cliente.apellido) : 'Registrarme'
+          a(href= cliente ? '/' : '/registro_cliente' aria-label=  cliente ? '/' : ' Registrarme')
+            i.fa.fa-user 
+            i=  cliente ? ( cliente.nombre + ' ' +  cliente.apellido) : ' Registrarme'
+        li
+          a(href='/cerrar_sesion')
+            i.material-symbols-outlined &#xe8ac; 
+            span(style="vertical-align: middle;")  Cerrar Sesión
     .container
       block content

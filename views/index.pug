@@ -4,17 +4,17 @@ block content
   h1 #{title}
   if cliente
     i(class="fas fa-user")
-    span ¡Hola, #{cliente.nombre} #{cliente.apellido}!
+    span  ¡Hola, #{cliente.nombre} #{cliente.apellido}!
     br
     br
     span(id="fechaRegistro") Fecha de registro:
-    p Bienvenido a nuestra página de ventas ecommerce.
+    p Bienvenido a nuestra página de ventas de videojuegos.
   else
     p Bienvenido/a, por favor regístrate para comenzar a comprar.
   
 
   form(action='/buscar-producto', method='GET' class='search-bar')
-    input(type='text', name='q', placeholder='Buscar producto...')
+    input(type='text', name='q', placeholder='Buscar juego...')
     button(type='submit') Buscar
 
   //- Función dentro del mismo alcance para saber la fecha de registro

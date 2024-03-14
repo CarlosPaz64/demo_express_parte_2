@@ -10,7 +10,7 @@ body {
 }
 
 nav {
-  background-color: #333;
+  background-color: #6bf906;
   color: white;
   padding: 10px 0;
   text-align: center;
@@ -25,7 +25,7 @@ nav ul li {
   margin-right: 20px;
 }
 nav ul li a {
-  color: white;
+  color: rgb(0, 0, 0);
   text-decoration: none;
   font-weight: bold;
   padding: 5px 10px;
@@ -33,7 +33,7 @@ nav ul li a {
   transition: background-color 0.3s;
 }
 nav ul li a:hover {
-  background-color: #555;
+  background-color: #24c219;
 }
 
 .container {
@@ -87,6 +87,7 @@ table tr:hover {
 .action-buttons span {
   margin: 0 5px;
   font-weight: bold;
+  font-family: var(--letra-principal);
 }
 
 .procesar-compra-container {
@@ -146,8 +147,8 @@ p.empty-cart {
 
 .producto-container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 5fr));
+  gap: 40px;
 }
 
 .producto {
@@ -197,6 +198,7 @@ p.empty-cart {
   border: none;
   cursor: pointer;
   text-decoration: none;
+  font-family: var(--letra-principal);
 }
 
 .button-confirm {

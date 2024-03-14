@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap')
+
+:root
+  --letra-principal: "Josefin Sans", sans-serif
+
 body
-  font-family: Arial, sans-serif
+  font-family: var(--letra-principal)
   margin: 0
   padding: 0
 
 nav
-  background-color: #333
+  background-color: #6bf906
   color: white
   padding: 10px 0
   text-align: center
@@ -19,7 +24,7 @@ nav
       margin-right: 20px
 
       a
-        color: white
+        color: rgb(0, 0, 0)
         text-decoration: none
         font-weight: bold
         padding: 5px 10px
@@ -27,7 +32,7 @@ nav
         transition: background-color 0.3s
 
         &:hover
-          background-color: #555
+          background-color: #24c219
 
 .container
   max-width: 800px
@@ -41,6 +46,7 @@ table
   width: 100%
   border-collapse: collapse
   margin-bottom: 20px
+  font-family: var(--letra-principal)
 
   th, td
     border: 1px solid #ddd
@@ -68,6 +74,7 @@ table
     border: none
     border-radius: 5px
     cursor: pointer
+    font-family: var(--letra-principal)
 
     &:hover
       background-color: #555
@@ -75,10 +82,12 @@ table
   span
     margin: 0 5px
     font-weight: bold
+    font-family: var(--letra-principal)
 
 .procesar-compra-container
   text-align: center
   margin-bottom: 20px
+  font-family: var(--letra-principal)
 
 .procesar-compra-button
   padding: 10px 20px
@@ -87,6 +96,7 @@ table
   color: white
   border: none
   cursor: pointer
+  font-family: var(--letra-principal)
 
   &:hover
     background-color: #45a049
@@ -101,13 +111,15 @@ p.empty-cart
   display: flex
   align-items: center
   margin-bottom: 20px
+  font-family: var(--letra-principal)
 
-  input[type="text"]
+  input[type=text]
     flex: 1
     padding: 8px
     font-size: 16px
     border: 1px solid #ccc
     border-radius: 5px
+    font-family: var(--letra-principal)
 
   button
     padding: 8px 15px
@@ -118,14 +130,15 @@ p.empty-cart
     border-radius: 5px
     cursor: pointer
     transition: background-color 0.3s
+    font-family: var(--letra-principal)
 
     &:hover
       background-color: #555
 
 .producto-container
   display: grid
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
-  gap: 20px
+  grid-template-columns: repeat(auto-fill, minmax(200px, 5fr))
+  gap: 40px
 
 .producto
   border: 1px solid #ccc
@@ -134,8 +147,10 @@ p.empty-cart
 
   img
     max-width: 100%
-    height: auto
+    height: 200px
     margin-bottom: 10px
+    display: block
+    margin: 0 auto
 
   h2
     font-size: 1.5rem
@@ -151,6 +166,7 @@ p.empty-cart
     border: none
     border-radius: 5px
     cursor: pointer
+    font-family: var(--letra-principal)
 
     &:hover
       background-color: #555
@@ -169,6 +185,7 @@ p.empty-cart
   border: none
   cursor: pointer
   text-decoration: none
+  font-family: var(--letra-principal)
 
 .button-confirm
   background-color: #4CAF50
@@ -198,3 +215,42 @@ p.empty-cart
   color: #666
   text-align: center
   margin-top: 20px
+
+.form-container
+  max-width: 400px
+  margin: 0 auto
+
+.form-style
+  background-color: #f9f9f9
+  padding: 20px
+  border-radius: 10px
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+
+.form-group
+  margin-bottom: 20px
+
+label
+  font-weight: bold
+
+input[type="text"]
+  width: 100%
+  padding: 10px
+  border: 1px solid #ccc
+  border-radius: 5px
+  font-family: var(--letra-principal)
+
+input[type="submit"]
+  background-color: #007bff
+  color: #fff
+  padding: 10px 20px
+  border: none
+  border-radius: 5px
+  cursor: pointer
+  font-family: var(--letra-principal)
+
+input[type="submit"]:hover
+  background-color: #0056b3
+
+.material-symbols-outlined
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+  vertical-align: middle

@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-:root{
-  --letra-principal: "Josefin Sans", sans-serif; 
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+:root {
+  --letra-principal: "Josefin Sans", sans-serif;
 }
 
 body {
-  font-family: "Josefin Sans", sans-serif;
+  font-family: var(--letra-principal);
   margin: 0;
   padding: 0;
 }
@@ -235,7 +235,7 @@ p.empty-cart {
   text-align: center;
   margin-top: 20px;
 }
-/*Estilo del formulario de registro*/
+
 .form-container {
   max-width: 400px;
   margin: 0 auto;
@@ -256,7 +256,7 @@ label {
   font-weight: bold;
 }
 
-input[type="text"] {
+input[type=text] {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -264,7 +264,7 @@ input[type="text"] {
   font-family: var(--letra-principal);
 }
 
-input[type="submit"] {
+input[type=submit] {
   background-color: #007bff;
   color: #fff;
   padding: 10px 20px;
@@ -274,18 +274,13 @@ input[type="submit"] {
   font-family: var(--letra-principal);
 }
 
-input[type="submit"]:hover {
+input[type=submit]:hover {
   background-color: #0056b3;
-  font-family: var(--letra-principal);
 }
 
 .material-symbols-outlined {
-  font-variation-settings:
-  'FILL' 0,
-  'wght' 400,
-  'GRAD' 0,
-  'opsz' 24;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   vertical-align: middle;
 }
 
-/*# sourceMappingURL=styles.css.map*/
+/*# sourceMappingURL=styles.css.map */

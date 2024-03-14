@@ -33,7 +33,7 @@ block content
     fechaRegistroSpan.textContent = 'Fecha de registro: ' + getFechaRegistro();
   
   .carousel-container
-  .carousel.slide(data-ride="carousel", id="carouselExampleIndicators", style="width: 500px; height: 300px; margin: auto; overflow: hidden;")
+  .carousel.slide(data-ride="carousel", id="carouselExampleIndicators", style="display: grid; grid-template-columns: repeat(auto-fill, minmax(600px, 8fr)); gap: 40px;")
     .carousel-inner(style="width: 100%; height: 100%;")
       .carousel-item.active
         img.d-block.w-100(src="../images/producto1.jpg", alt="First slide", style="object-fit: contain; width: 100%; height: 100%;")
